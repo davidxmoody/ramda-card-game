@@ -5,10 +5,18 @@ function randomPick<T>(list: T[], num: number): T[] {
   return R.sortBy(() => Math.random(), list).slice(0, num)
 }
 
-const startingConstants = randomPick(R.range(-20, 21), 3)
-const targetConstants = randomPick(R.range(-20, 21), 3)
+// const startingConstants = randomPick(R.range(-20, 21), 3)
+// const targetConstants = randomPick(R.range(-20, 21), 3)
+// const startingConstants = randomPick(R.range(-10, 11), 1)
+// const targetConstants = randomPick(R.range(-10, 11), 1)
+const startingConstants = [
+  randomPick(R.range(0, 6), Math.ceil(Math.random() * 3)),
+]
+const targetConstants = [
+  randomPick(R.range(0, 6), Math.ceil(Math.random() * 3)),
+]
 
-const handConstants = randomPick(R.range(-10, 11), 12)
+const handConstants = [...R.range(0, 6), ...R.range(-3, 6)]
 
 const mathFunctionNames: Array<keyof typeof R> = [
   "add",
@@ -30,7 +38,28 @@ const mathFunctionNames: Array<keyof typeof R> = [
   "max",
 ]
 
-let hand = randomPick([...mathFunctionNames, ...handConstants], 3)
+const numberListFunctionNames: Array<keyof typeof R> = [
+  "adjust", "adjust", "adjust", "adjust",
+  "append", "append", "append", "append",
+  "drop",
+  "dropLast",
+  "dropRepeats",
+  "init",
+  "insert",
+  "intersperse",
+  "map",
+  "move",
+  "remove",
+  "reverse",
+  "slice",
+  "tail",
+  "take",
+  "takeLast",
+  "uniq",
+  "update", "update",
+]
+
+let hand = randomPick([...mathFunctionNames, ...numberListFunctionNames, ...handConstants], 3)
 
 function printHand() {
   console.log("Starting constants:")
@@ -56,7 +85,7 @@ const rl = readline.createInterface({
 
 rl.on("line", () => {
   hand = hand.concat(
-    randomPick(R.difference([...mathFunctionNames, ...handConstants], hand), 1),
+    randomPick(R.difference([...mathFunctionNames, ...numberListFunctionNames, ...handConstants], hand), 1),
   )
   printHand()
 })
