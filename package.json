@@ -1,0 +1,21 @@
+{
+  "name": "ramda-card-game",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "David Moody <david@davidxmoody.com> (https://davidxmoody.com/)",
+  "license": "ISC",
+  "dependencies": {
+    "ramda": "^0.27.1",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.5"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.6",
+    "@types/ramda": "^0.27.32"
+  }
+}
